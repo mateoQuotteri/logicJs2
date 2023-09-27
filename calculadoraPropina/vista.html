@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./calculadora.css">
+    <title>Calculadora de Propinas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Propinas</h1>
+        <div class="input-group">
+            <label for="costo-comida">Costo de la Comida:</label>
+            <input type="number" id="costo-comida" placeholder="Ingrese el costo">
+        </div>
+        <div class="input-group">
+            <label for="porcentaje-propina">Porcentaje de Propina:</label>
+            <input type="number" id="porcentaje-propina" placeholder="Ingrese el porcentaje">
+        </div>
+        <button id="calcular">Calcular Propina</button>
+        <div class="resultado">
+            <p>Propina: <span id="propina">0.00</span></p>
+            <p>Total a Pagar: <span id="total">0.00</span></p>
+        </div>
+    </div>
+    <script src="./calculadora.js"></script>
+</body>
+</html>

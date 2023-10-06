@@ -12,7 +12,7 @@ function generarCartas() {
     const numerosArray = numerosInput.split(',').map(numero => parseInt(numero.trim(), 10));
 
     for (let i = 0; i < 4; i++) {
-        let numeroAleatorio = generarNumeroAleatorio(1, 12);
+        let numeroAleatorio = generarNumeroAleatorio(1, 9);
         numerosAleatorios.push(numeroAleatorio);
     }
 
@@ -33,6 +33,16 @@ input.addEventListener("input", function(event) {
   // Hacer algo con los números ingresados
   const ultimoCaracter = numerosIngresados.charAt(numerosIngresados.length - 1);
 
+  if (numerosAleatorios.includes(parseInt(ultimoCaracter))) {
+      console.log(input.value);  
+  }else{
+      setTimeout(() => {
+        var newValue = input.value.slice(0, -1);
+        // Asigna el nuevo valor al input
+        input.value = newValue;
+      }, 2000);
+  }
+
   
-  console.log("Números ingresados:", ultimoCaracter);
+  
 });

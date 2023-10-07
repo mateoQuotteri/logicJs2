@@ -24,7 +24,9 @@ input {
     border: 1px solid #ccc;
     border-radius: 3px;
 }
-
+.none{
+    display:none;
+}
 button {
     padding: 10px 20px;
     background-color: #007BFF;
@@ -54,3 +56,4 @@ button:hover {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+

@@ -34,7 +34,7 @@ input.addEventListener("input", function(event) {
   // Hacer algo con los números ingresados
   const ultimoCaracter = numerosIngresados.charAt(numerosIngresados.length - 1);
 
-  if (numerosAleatorios.includes(parseInt(ultimoCaracter))) {
+  if (numerosAleatorios.includes(parseInt(ultimoCaracter)) || operadores.includes(ultimoCaracter)  ) {
       console.log(input.value);  
   }else{
        message.classList.remove("none")

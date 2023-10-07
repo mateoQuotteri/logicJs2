@@ -2,6 +2,7 @@ const numerosAleatorios = [];
 const boton = document.getElementById("button");
 const input = document.getElementById("numeros");
 const operadores = ["+" , "-" , "*" , "/" ];
+const message = document.getElementById("message")
 
 function generarNumeroAleatorio(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -36,10 +37,12 @@ input.addEventListener("input", function(event) {
   if (numerosAleatorios.includes(parseInt(ultimoCaracter))) {
       console.log(input.value);  
   }else{
+       message.classList.remove("none")
       setTimeout(() => {
         var newValue = input.value.slice(0, -1);
         // Asigna el nuevo valor al input
         input.value = newValue;
+        message.classList.add("none")
       }, 2000);
   }
 

@@ -4,6 +4,7 @@ const input = document.getElementById("numeros");
 const operadores = ["+", "-", "*", "/"];
 const message = document.getElementById("message");
 const message2 = document.getElementById("message2");
+const cartas = document.querySelectorAll(".carta")
 
 function generarNumeroAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -63,6 +64,16 @@ input.addEventListener("input", function (event) {
       message2.classList.add("none");
     }, 1500);
   }
+
+  cartas.forEach(carta => {
+    if (carta.innerHTML == ultimoCaracter) {
+      setTimeout(() => {
+        carta.innerHTML = ""
+      }, 1500);
+      
+    }
+  });
+
 });
 
 boton.addEventListener("click", (e) => {

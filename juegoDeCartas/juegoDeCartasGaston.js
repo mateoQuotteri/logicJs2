@@ -4,6 +4,9 @@ const input = document.getElementById("numeros");
 const operadores = ["+", "-", "*", "/"];
 const message = document.getElementById("message");
 const message2 = document.getElementById("message2");
+const message3 = document.getElementById("message3");
+const message4 = document.getElementById("message4");
+
 const cartas = document.querySelectorAll(".carta")
 
 function generarNumeroAleatorio(min, max) {
@@ -78,11 +81,21 @@ input.addEventListener("input", function (event) {
 
 boton.addEventListener("click", (e) => {
   const valor = input.value;
+  let resultado;
 
   try {
-    const resultado = eval(valor);
-    console.log(resultado);
+     resultado = eval(valor);
   } catch (error) {
-    console.log(error);
+    alert(error)
   }
+
+  console.log(resultado);
+
+  if (resultado === 24) {
+    message3.classList.remove("none")
+  }else {
+    message4.classList.remove("none")
+  }
+
+
 });

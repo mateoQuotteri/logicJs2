@@ -12,7 +12,6 @@ const cartas = document.querySelectorAll(".carta");
 function generarNumeroAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
 function generarCartas() {
   const numerosInput = document.getElementById("numeros").value;
   const numerosArray = numerosInput
@@ -20,7 +19,11 @@ function generarCartas() {
     .map((numero) => parseInt(numero.trim(), 10));
 
   for (let i = 0; i < 4; i++) {
-    let numeroAleatorio = generarNumeroAleatorio(1, 9);
+    let numeroAleatorio;
+    do {
+      numeroAleatorio = generarNumeroAleatorio(1, 9);
+    } while (numerosAleatorios.includes(numeroAleatorio) || numerosArray.includes(numeroAleatorio));
+
     numerosAleatorios.push(numeroAleatorio);
   }
 
@@ -29,6 +32,7 @@ function generarCartas() {
     carta.textContent = numerosAleatorios[i];
   }
 }
+
 
 // Esperar a que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", function () {

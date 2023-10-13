@@ -1,4 +1,4 @@
-const numerosAleatorios = [];
+let numerosAleatorios = [];
 const boton = document.getElementById("button");
 const input = document.getElementById("numeros");
 const operadores = ["+", "-", "*", "/"];
@@ -7,7 +7,7 @@ const message2 = document.getElementById("message2");
 const message3 = document.getElementById("message3");
 const message4 = document.getElementById("message4");
 
-const cartas = document.querySelectorAll(".carta")
+const cartas = document.querySelectorAll(".carta");
 
 function generarNumeroAleatorio(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -35,17 +35,20 @@ document.addEventListener("DOMContentLoaded", function () {
   generarCartas(); // Llamada a la función después de que el DOM esté cargado
 });
 
+
 input.addEventListener("input", function (event) {
   const numerosIngresados = event.target.value;
   // Hacer algo con los números ingresados
   const ultimoCaracter = numerosIngresados.charAt(numerosIngresados.length - 1);
-
   if (
-    numerosAleatorios.includes(parseInt(ultimoCaracter)) ||
+    numerosAleatorios.includes(parseInt(ultimoCaracter, 10)) ||
     operadores.includes(ultimoCaracter)
-  ) {
-    console.log(input.value);
-  } else {
+) {
+    console.log("Antes de filtrar:", numerosAleatorios);
+    let numerosFiltrados = numerosAleatorios.filter(numero => numero !== parseInt(ultimoCaracter, 10));
+    numerosAleatorios = numerosFiltrados;
+    console.log("Después de filtrar:", numerosAleatorios);
+} else {
     message.classList.remove("none");
     setTimeout(() => {
       var newValue = input.value.slice(0, -1);
@@ -55,7 +58,7 @@ input.addEventListener("input", function (event) {
     }, 1500);
   }
 
-  if (
+  /*if (
     input.value.lastIndexOf(ultimoCaracter) !==
     input.value.indexOf(ultimoCaracter)
   ) {
@@ -66,17 +69,15 @@ input.addEventListener("input", function (event) {
       input.value = newValue;
       message2.classList.add("none");
     }, 1500);
-  }
+  }*/
 
-  cartas.forEach(carta => {
+  cartas.forEach((carta) => {
     if (carta.innerHTML == ultimoCaracter) {
       setTimeout(() => {
-        carta.innerHTML = ""
+        carta.innerHTML = "";
       }, 1500);
-      
     }
   });
-
 });
 
 boton.addEventListener("click", (e) => {
@@ -84,18 +85,16 @@ boton.addEventListener("click", (e) => {
   let resultado;
 
   try {
-     resultado = eval(valor);
+    resultado = eval(valor);
   } catch (error) {
-    alert(error)
+    alert(error);
   }
 
   console.log(resultado);
 
   if (resultado === 24) {
-    message3.classList.remove("none")
-  }else {
-    message4.classList.remove("none")
+    message3.classList.remove("none");
+  } else {
+    message4.classList.remove("none");
   }
-
-
 });

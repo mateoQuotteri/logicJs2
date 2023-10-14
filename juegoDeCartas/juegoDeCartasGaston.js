@@ -78,7 +78,7 @@ input.addEventListener("input", function (event) {
   cartas.forEach((carta) => {
     if (carta.innerHTML == ultimoCaracter) {
       setTimeout(() => {
-        carta.innerHTML = "";
+        carta.innerHTML = "Usada";
       }, 1500);
     }
   });

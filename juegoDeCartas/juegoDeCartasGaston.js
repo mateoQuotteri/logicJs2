@@ -100,5 +100,9 @@ boton.addEventListener("click", (e) => {
     message3.classList.remove("none");
   } else {
     message4.classList.remove("none");
+    setTimeout(() => {
+      window.location.reload()
+    }, 1500);
   }
+
 });

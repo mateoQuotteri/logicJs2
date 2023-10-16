@@ -6,6 +6,7 @@ const message = document.getElementById("message");
 const message2 = document.getElementById("message2");
 const message3 = document.getElementById("message3");
 const message4 = document.getElementById("message4");
+const message5 = document.getElementById("message5");
 
 const cartas = document.querySelectorAll(".carta");
 
@@ -22,7 +23,10 @@ function generarCartas() {
     let numeroAleatorio;
     do {
       numeroAleatorio = generarNumeroAleatorio(1, 9);
-    } while (numerosAleatorios.includes(numeroAleatorio) || numerosArray.includes(numeroAleatorio));
+    } while (
+      numerosAleatorios.includes(numeroAleatorio) ||
+      numerosArray.includes(numeroAleatorio)
+    );
 
     numerosAleatorios.push(numeroAleatorio);
   }
@@ -33,12 +37,10 @@ function generarCartas() {
   }
 }
 
-
 // Esperar a que el DOM esté completamente cargado antes de ejecutar el código
 document.addEventListener("DOMContentLoaded", function () {
   generarCartas(); // Llamada a la función después de que el DOM esté cargado
 });
-
 
 input.addEventListener("input", function (event) {
   const numerosIngresados = event.target.value;
@@ -47,12 +49,14 @@ input.addEventListener("input", function (event) {
   if (
     numerosAleatorios.includes(parseInt(ultimoCaracter, 10)) ||
     operadores.includes(ultimoCaracter)
-) {
+  ) {
     console.log("Antes de filtrar:", numerosAleatorios);
-    let numerosFiltrados = numerosAleatorios.filter(numero => numero !== parseInt(ultimoCaracter, 10));
+    let numerosFiltrados = numerosAleatorios.filter(
+      (numero) => numero !== parseInt(ultimoCaracter, 10)
+    );
     numerosAleatorios = numerosFiltrados;
     console.log("Después de filtrar:", numerosAleatorios);
-} else {
+  } else {
     message.classList.remove("none");
     setTimeout(() => {
       var newValue = input.value.slice(0, -1);
@@ -91,7 +95,14 @@ boton.addEventListener("click", (e) => {
   try {
     resultado = eval(valor);
   } catch (error) {
-    alert(error);
+    message5.classList.remove("none");
+    setTimeout(() => {
+      message5.classList.add("none");
+    }, 1500);
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   }
 
   console.log(resultado);
@@ -101,8 +112,7 @@ boton.addEventListener("click", (e) => {
   } else {
     message4.classList.remove("none");
     setTimeout(() => {
-      window.location.reload()
+      window.location.reload();
     }, 1500);
   }
-
 });

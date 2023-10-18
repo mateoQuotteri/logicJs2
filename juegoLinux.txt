@@ -1,0 +1,29 @@
+1-sudo apt-get update
+2-sudo apt-get install cowsay
+3-mkdir carpetaScript
+4- cd carpetaScript
+5-cat > lista_verduras
+6-Escribis:
+palta
+Lechuga
+Brocoli
+Apretas CTRL + D
+7- cat > lista_frutas
+8-Escribis:
+Banana
+Manzana
+Pera
+Apretas CTRL + D
+
+9-nano script.sh
+10-Escribis:
+#!/bin/bash
+cat -n lista_frutas lista_verduras | cowsay
+
+11-CTRL + X
+12-Y
+13-ENTER
+
+
+15-chmod +x script.sh
+16-./script

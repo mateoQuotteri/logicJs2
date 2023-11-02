@@ -56,3 +56,6 @@
 
 
     console.log(maximoComunDivisor(10,20));
+
+
+  

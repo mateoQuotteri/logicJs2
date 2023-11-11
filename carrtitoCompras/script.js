@@ -3,8 +3,8 @@ let items = document.getElementById("items")
 let total = document.getElementById("cart-total")
 
 window.addEventListener("load", ()=> {
-  localStorage.removeItem("datos")
-  localStorage.removeItem("productos")
+  sessionStorage.removeItem("datos")
+  sessionStorage.removeItem("productos")
 
 })
 
@@ -13,7 +13,7 @@ window.addEventListener("load", ()=> {
 //del home
 
 function renderizarItemsEnCarrito() {
-    const datosGuardados = JSON.parse(localStorage.getItem("datos"));
+    const datosGuardados = JSON.parse(sessionStorage.getItem("datos"));
 
         let ultimo = datosGuardados.length;
 
@@ -41,16 +41,16 @@ buttons.forEach((element) => {
     const nuevoProducto = element.previousElementSibling.innerHTML;
 
     // Obtiene los datos existentes del localStorage (si los hay)
-    const datosGuardados = JSON.parse(localStorage.getItem("datos")) || [];
-    const productosGuardados = JSON.parse(localStorage.getItem("productos")) || [];
+    const datosGuardados = JSON.parse(sessionStorage.getItem("datos")) || [];
+    const productosGuardados = JSON.parse(sessionStorage.getItem("productos")) || [];
 
     // Agrega el nuevo dato al arreglo de datos
     datosGuardados.push(nuevoDato);
     productosGuardados.push(nuevoProducto)
 
     // Almacena los datos actualizados en el localStorage
-    localStorage.setItem("datos", JSON.stringify(datosGuardados));
-    localStorage.setItem("productos", JSON.stringify(productosGuardados));
+    sessionStorage.setItem("datos", JSON.stringify(datosGuardados));
+    sessionStorage.setItem("productos", JSON.stringify(productosGuardados));
 
 
 

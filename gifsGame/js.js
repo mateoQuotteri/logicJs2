@@ -5,6 +5,7 @@ const select = document.getElementById("type");
 document.addEventListener("DOMContentLoaded", function () {
     // Mover la selección del elemento .div aquí
     
+    let array = []
     select.addEventListener("change", (e) => {
         let type = select.value;
         console.log(type);
@@ -18,14 +19,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(data);
                 for (let i = 0; i < data.data.length; i++) {
                     const div = document.querySelector(".div");
+                    console.log(i);
                     if (data.data[i].name === type) {
-                        console.log("h");
-                        let body = document.getElementById("body")
-                        console.log(body);
-                        let newIframe = document.createElement("iframe");
-                        doingMagic(data.data[i].gif.embed_url, newIframe, body);
+                      // array.push(data.data[i].gif.embed_url)
+                       for (let x = 0; x < data.data[i].gif.images.length; x++) {
+                        array.push(data.data[i].gif.images[x].url)                        
+                       }
+
+                        //let body = document.getElementById("body")
+                        //onsole.log(body);
+                        //let newIframe = document.createElement("iframe");
+                 
+                        //doingMagic(data.data[i].gif.embed_url, newIframe, body);
                     }
                 }
+                console.log(array);
             });
         });
     });

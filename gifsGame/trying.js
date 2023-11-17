@@ -2,8 +2,8 @@ let image = document.getElementById("img");
 const form = document.getElementById("form"); // Cambiado de "select" a "form"
 let div = document.querySelector(".div");
 const input = document.getElementById("input");
-const botonAnterior = document.getElementById("anterior")
-const botonSiguiente = document.getElementById("sig")
+const botonAnterior = document.getElementById("anterior");
+const botonSiguiente = document.getElementById("sig");
 
 class Giphy {
   constructor(search) {
@@ -23,40 +23,43 @@ class Giphy {
   }
 }
 
-let x = 0;
+let r;
 
 function renderizarGif(indice, result) {
   let newGif = result.data[indice].embed_url;
-      let newVideo = document.createElement("iframe")
-      newVideo.src = newGif
-      div.appendChild(newVideo)
+  let newVideo = document.createElement("iframe");
+  newVideo.src = newGif;
+  div.appendChild(newVideo);
+}
+
+
+function renderizarGif2(indice, result, x) {
+  let newGif = result.data[indice].embed_url;
+  let newVideo = document.createElement("iframe");
+  newVideo.src = newGif;
+  div.appendChild(newVideo);
 }
 form.addEventListener("submit", (e) => {
-  // Cambiado de "select" a "form"
-  e.preventDefault(); // Evitar que el formulario se envíe y recargue la página
+  e.preventDefault();
   let type = input.value;
   const gif = new Giphy(type);
   gif.getSearchResults().then((result) => {
     console.log(result);
-    
-    renderizarGif(0, result)
-    //for (let i = 0; i < 10; i++) {
-    //  let newGif = result.data[0].embed_url;
-     // let newVideo = document.createElement("iframe")
-     // newVideo.src = newGif
-      // div.appendChild(newVideo)
-      
-    //}
+    r = result;
+    renderizarGif(0, result);
   });
 });
 
-botonSiguiente.addEventListener("click", (e)=> {
-  console.log(e);
-  if (x = 0) {
-    x = 1;
-    renderizarGif(x)
-  }else{
-    x+=1;
-    renderizarGif(x)
+let x = 1;
+botonSiguiente.addEventListener("click", (e) => {
+  console.log(x);
+  if (x == 1) {
+    renderizarGif(x, r);
+    x++
+  }else  {
+    renderizarGif(x, r);
+    x++
   }
-})
+  
+
+});

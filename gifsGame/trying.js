@@ -4,7 +4,7 @@ let div = document.querySelector(".div");
 const input = document.getElementById("input");
 const botonAnterior = document.getElementById("anterior");
 const botonSiguiente = document.getElementById("sig");
-
+const video = document.getElementById("video")
 class Giphy {
   constructor(search) {
     this.apiKey = "VFidxXzab1k8WlrIZaIHJRjlOegWJBQw";
@@ -27,16 +27,14 @@ let r;
 
 function renderizarGif(indice, result) {
   let newGif = result.data[indice].embed_url;
-  let newVideo = document.createElement("iframe");
-  newVideo.src = newGif;
-  div.appendChild(newVideo);
+  video.src = newGif;
 }
-
 
 function renderizarGif2(indice, result, x) {
   let newGif = result.data[indice].embed_url;
   let newVideo = document.createElement("iframe");
   newVideo.src = newGif;
+  newVideo.classList = "video";
   div.appendChild(newVideo);
 }
 form.addEventListener("submit", (e) => {
@@ -55,11 +53,9 @@ botonSiguiente.addEventListener("click", (e) => {
   console.log(x);
   if (x == 1) {
     renderizarGif(x, r);
-    x++
-  }else  {
+    x++;
+  } else {
     renderizarGif(x, r);
-    x++
+    x++;
   }
-  
-
 });

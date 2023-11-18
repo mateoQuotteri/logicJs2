@@ -1,35 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
-  </head>
-  <body id="body">
-    <form action="" id="form">
-      <input id="input" type="text" placeholder="Busca un gif..." />
-      <input type="submit" />
-    </form>
+    <title>Buscador de GIFs</title>
+</head>
+<body id="body">
+    <div class="container">
+        <form action="" id="form">
+            <input id="input" type="text" placeholder="Busca un gif..." />
+            <input type="submit" id="submit-btn" value="Buscar" />
+        </form>
 
-    <!-- <option value="actions">actions</option>
-   <select name="type" id="type">
-    <option value="animals">animals</option>
-    <option value="anime">anime</option>
-    <option value="art & design">art & design</option>
-    <option value="cartoons & comics">cartoons & comics</option>
-    <option value="adjectives">adjectives</option>
--->
-
-    <div class="flex-dad">
-        <button id="anterior">Anterior</button>
-    <div class="div">
-
+        <div class="gif-container">
+            <button id="anterior" class="nav-btn">Anterior</button>
+            <div class=" div gif-display" id="gif-display">
+                <iframe id="video" class="video" frameborder="0"></iframe>
+            </div>
+            <button id="sig" class="nav-btn">Siguiente</button>
+        </div>
     </div>
 
-    <button id="sig">Siguiente</button>
-    </div>
-    
-  </body>
-  <script src="./trying.js"></script>
+    <script src="./trying.js"></script>
+</body>
 </html>

@@ -62,8 +62,12 @@ botonSiguiente.addEventListener("click", (e) => {
 });
 
 botonAnterior.addEventListener("click" ,(e) => {
+  x-=1;
+  console.log(x);
+
   if (x> 0) {
-    x--;
+  x-=1;
+
     renderizarGif(x, r);
   } 
 })
